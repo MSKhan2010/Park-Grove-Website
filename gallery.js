@@ -2,9 +2,6 @@
 // gallery.ts
 document.addEventListener('DOMContentLoaded', () => {
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    // The previous version placed src="img/facebook 5.jpg" directly in the HTML.
-    // Some local servers can miss the image error before JavaScript attaches the fallback handler.
-    // This loader attaches the handler first, then tries several safe paths using encoded spaces.
     const IMAGE_DIRECTORIES = ['./img', 'img', '/img', '../img', './imgs', 'imgs', '/imgs', '../imgs'];
     const FIRST_IMAGE_NUMBER = 3;
     const LAST_IMAGE_NUMBER = 51;
