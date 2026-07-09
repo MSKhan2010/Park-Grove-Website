@@ -1,0 +1,120 @@
+/* --- About Page Specific Styles --- */
+
+/* Hero Section */
+.about-hero {
+    background: linear-gradient(rgba(42, 157, 143, 0.8), rgba(42, 157, 143, 0.9)), url('https://images.unsplash.com/photo-1512626120412-faf41adb4874?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover;
+    height: 40vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--white);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+}
+
+.about-hero h2 {
+    font-size: 3.5rem;
+    margin-bottom: 10px;
+    letter-spacing: 2px;
+}
+
+.about-hero p {
+    font-size: 1.2rem;
+    font-weight: 300;
+}
+
+/* Main Content Container */
+.about-container {
+    max-width: 1000px;
+    margin: 60px auto;
+    padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+}
+
+/* Thematic Blocks */
+.about-block {
+    display: flex;
+    justify-content: center;
+}
+
+.about-text-card {
+    background: var(--white);
+    padding: 50px;
+    border-radius: 20px;
+    box-shadow: 0 15px 40px rgba(42, 157, 143, 0.08);
+    border-left: 6px solid var(--primary-color);
+    position: relative;
+    max-width: 800px;
+}
+
+.about-block.reverse .about-text-card {
+    border-left: none;
+    border-right: 6px solid var(--secondary-color);
+    text-align: right;
+}
+
+/* Icons */
+.section-icon {
+    font-size: 2.5rem;
+    color: var(--secondary-color);
+    margin-bottom: 20px;
+    opacity: 0.8;
+}
+
+.about-block.reverse .section-icon {
+    color: var(--primary-color);
+}
+
+/* Typography Details */
+.about-text-card h3 {
+    font-size: 2.2rem;
+    color: var(--text-dark);
+    margin-bottom: 20px;
+}
+
+.about-text-card p {
+    font-size: 1.05rem;
+    color: var(--text-light);
+    margin-bottom: 15px;
+    line-height: 1.8;
+}
+
+.about-text-card p:last-child {
+    margin-bottom: 0;
+}
+
+/* Highlight Card (Final Section) */
+.highlight-card {
+    background: var(--primary-color);
+    color: var(--white);
+    border: none;
+    text-align: center;
+}
+
+.highlight-card h3, .highlight-card p {
+    color: var(--white);
+}
+
+.highlight-card .section-icon {
+    color: var(--white);
+    font-size: 3rem;
+}
+
+/* --- Smooth Fade In / Fade Out Scroll Logic --- */
+.fade-scroll {
+    opacity: 0;
+    transform: translateY(40px) scale(0.98);
+    transition: opacity 1s cubic-bezier(0.25, 1, 0.5, 1), transform 1s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.fade-scroll.in-view {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+.fade-scroll.out-view-top {
+    opacity: 0;
+    transform: translateY(-40px) scale(0.98);
+}
