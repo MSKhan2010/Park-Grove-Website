@@ -1,120 +1,228 @@
-/* --- About Page Specific Styles --- */
-
-/* Hero Section */
-.about-hero {
-    background: linear-gradient(rgba(42, 157, 143, 0.8), rgba(42, 157, 143, 0.9)), url('https://images.unsplash.com/photo-1512626120412-faf41adb4874?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover;
-    height: 40vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    color: var(--white);
-    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+/* About page */
+.about-page main {
+    width: 100%;
+    overflow: hidden;
 }
 
-.about-hero h2 {
-    font-size: 3.5rem;
-    margin-bottom: 10px;
-    letter-spacing: 2px;
+.about-hero {
+    position: relative;
+    isolation: isolate;
+    width: 100%;
+    min-height: clamp(390px, 52svh, 560px);
+    padding: clamp(70px, 10vw, 120px) 20px;
+    display: grid;
+    place-items: center;
+    color: var(--white);
+    text-align: center;
+    overflow: hidden;
+    background:
+        linear-gradient(120deg, rgba(25, 93, 85, 0.9), rgba(42, 157, 143, 0.82)),
+        url("https://images.unsplash.com/photo-1512626120412-faf41adb4874?auto=format&fit=crop&w=1920&q=82") center / cover;
+}
+
+.about-hero::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    width: min(58vw, 620px);
+    aspect-ratio: 1;
+    top: -45%;
+    left: -16%;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 50%;
+    box-shadow: 0 0 0 34px rgba(255, 255, 255, 0.04), 0 0 0 76px rgba(255, 255, 255, 0.025);
+}
+
+.about-hero-content {
+    width: min(100%, 780px);
+}
+
+.about-kicker {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 15px;
+    font-size: clamp(0.74rem, 1.5vw, 0.88rem);
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+}
+
+.about-hero h1 {
+    margin-bottom: 13px;
+    font-size: clamp(2.8rem, 7vw, 4.25rem);
 }
 
 .about-hero p {
-    font-size: 1.2rem;
-    font-weight: 300;
-}
-
-/* Main Content Container */
-.about-container {
-    max-width: 1000px;
-    margin: 60px auto;
-    padding: 0 20px;
-    display: flex;
-    flex-direction: column;
-    gap: 60px;
-}
-
-/* Thematic Blocks */
-.about-block {
-    display: flex;
-    justify-content: center;
-}
-
-.about-text-card {
-    background: var(--white);
-    padding: 50px;
-    border-radius: 20px;
-    box-shadow: 0 15px 40px rgba(42, 157, 143, 0.08);
-    border-left: 6px solid var(--primary-color);
-    position: relative;
-    max-width: 800px;
-}
-
-.about-block.reverse .about-text-card {
-    border-left: none;
-    border-right: 6px solid var(--secondary-color);
-    text-align: right;
-}
-
-/* Icons */
-.section-icon {
-    font-size: 2.5rem;
-    color: var(--secondary-color);
-    margin-bottom: 20px;
-    opacity: 0.8;
-}
-
-.about-block.reverse .section-icon {
-    color: var(--primary-color);
-}
-
-/* Typography Details */
-.about-text-card h3 {
-    font-size: 2.2rem;
-    color: var(--text-dark);
-    margin-bottom: 20px;
-}
-
-.about-text-card p {
-    font-size: 1.05rem;
-    color: var(--text-light);
-    margin-bottom: 15px;
-    line-height: 1.8;
-}
-
-.about-text-card p:last-child {
     margin-bottom: 0;
+    font-size: clamp(1rem, 2vw, 1.2rem);
 }
 
-/* Highlight Card (Final Section) */
-.highlight-card {
-    background: var(--primary-color);
-    color: var(--white);
-    border: none;
+.about-intro {
+    width: min(calc(100% - 40px), 820px);
+    margin: clamp(64px, 8vw, 94px) auto 0;
     text-align: center;
 }
 
-.highlight-card h3, .highlight-card p {
+.about-intro h2 {
+    margin-bottom: 16px;
+    color: var(--green);
+    font-size: clamp(2rem, 4.5vw, 3rem);
+}
+
+.about-intro p {
+    margin-bottom: 0;
+    color: var(--muted);
+}
+
+.about-container {
+    width: min(calc(100% - 40px), 1000px);
+    margin: clamp(48px, 7vw, 76px) auto clamp(76px, 10vw, 116px);
+    display: grid;
+    gap: clamp(26px, 5vw, 54px);
+}
+
+.about-block {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.about-block.reverse {
+    justify-content: flex-end;
+}
+
+.about-card {
+    width: min(100%, 850px);
+    min-width: 0;
+    padding: clamp(31px, 5vw, 52px);
+    border: 1px solid rgba(42, 157, 143, 0.12);
+    border-left: 6px solid var(--green);
+    border-radius: 0 26px 26px 0;
+    background: var(--white);
+    box-shadow: var(--shadow);
+}
+
+.about-block.reverse .about-card {
+    border-left: 1px solid rgba(42, 157, 143, 0.12);
+    border-right: 6px solid var(--coral);
+    border-radius: 26px 0 0 26px;
+    text-align: right;
+}
+
+.about-card-heading {
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.about-block.reverse .about-card-heading {
+    flex-direction: row-reverse;
+}
+
+.about-card-heading span {
+    color: rgba(42, 157, 143, 0.27);
+    font-family: var(--heading);
+    font-size: clamp(2.1rem, 5vw, 3.15rem);
+    font-weight: 700;
+    line-height: 1;
+}
+
+.about-card-heading i {
+    color: var(--coral);
+    font-size: clamp(2rem, 4vw, 2.65rem);
+}
+
+.about-block.reverse .about-card-heading i {
+    color: var(--green);
+}
+
+.about-card h2 {
+    margin-bottom: 18px;
+    font-size: clamp(1.8rem, 4vw, 2.35rem);
+}
+
+.about-card p {
+    margin-bottom: 14px;
+    color: var(--muted);
+    line-height: 1.82;
+}
+
+.about-card p:last-child {
+    margin-bottom: 0;
+}
+
+.highlight-card {
+    width: 100%;
+    border: 0;
+    border-radius: 26px;
+    color: var(--white);
+    background: linear-gradient(130deg, var(--green-dark), var(--green));
+    text-align: center;
+    box-shadow: 0 22px 54px rgba(31, 116, 107, 0.22);
+}
+
+.highlight-card .about-card-heading {
+    justify-content: center;
+}
+
+.highlight-card .about-card-heading span,
+.highlight-card .about-card-heading i,
+.highlight-card h2,
+.highlight-card p {
     color: var(--white);
 }
 
-.highlight-card .section-icon {
-    color: var(--white);
-    font-size: 3rem;
+.highlight-card .about-card-heading span {
+    opacity: 0.3;
 }
 
-/* --- Smooth Fade In / Fade Out Scroll Logic --- */
-.fade-scroll {
-    opacity: 0;
-    transform: translateY(40px) scale(0.98);
-    transition: opacity 1s cubic-bezier(0.25, 1, 0.5, 1), transform 1s cubic-bezier(0.25, 1, 0.5, 1);
+@media (max-width: 760px) {
+    .about-intro,
+    .about-container {
+        width: min(calc(100% - 28px), 1000px);
+    }
+
+    .about-block,
+    .about-block.reverse {
+        justify-content: center;
+    }
+
+    .about-card,
+    .about-block.reverse .about-card {
+        width: 100%;
+        border: 1px solid rgba(42, 157, 143, 0.12);
+        border-left: 5px solid var(--green);
+        border-radius: 0 20px 20px 0;
+        text-align: left;
+    }
+
+    .about-block.reverse .about-card-heading {
+        flex-direction: row;
+    }
+
+    .highlight-card,
+    .about-block.reverse .highlight-card {
+        border: 0;
+        border-radius: 22px;
+        text-align: center;
+    }
+
+    .highlight-card .about-card-heading {
+        justify-content: center;
+    }
 }
 
-.fade-scroll.in-view {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-}
+@media (max-width: 520px) {
+    .about-hero {
+        min-height: 410px;
+        padding-inline: 15px;
+    }
 
-.fade-scroll.out-view-top {
-    opacity: 0;
-    transform: translateY(-40px) scale(0.98);
+    .about-card,
+    .about-block.reverse .about-card {
+        padding: 27px 21px 29px;
+    }
 }
